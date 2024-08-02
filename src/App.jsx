@@ -24,7 +24,7 @@ function App() {
           <Route path="/pets/editar/:id" element={<EditarPet />} />
         </Routes>
       </BrowserRouter>
-      <Toaster />
+      <Toaster position="bottom-right" />
     </>
   );
 }

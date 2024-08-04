@@ -1,6 +1,10 @@
 function NovoPet() {
-    return <main className="mt-4">NovoPet</main>;
-  }
-  
-  export default NovoPet;
-  
+  return (
+    <main className="mt-4 container">
+      <h1>Novo pet</h1>
+      <hr />
+    </main>
+  );
+}
+
+export default NovoPet;

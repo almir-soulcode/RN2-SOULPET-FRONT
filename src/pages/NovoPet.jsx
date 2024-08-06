@@ -18,6 +18,7 @@ function NovoPet() {
   const [clientes, setClientes] = useState([]);
 
   function salvarPet(data) {
+    if (data.dataNasc === "") data.dataNasc = null;
     addPet(data)
       .then(() => {
         toast.success("Pet adicionado com sucesso.");
@@ -83,10 +84,10 @@ function NovoPet() {
             type="date"
             id="dataNasc"
             className="form-control"
-            {...register("dataNasc", { required: true, maxLength: 200 })}
+            {...register("dataNasc")}
           />
           {errors.dataNasc && (
-            <small className="text-danger">O porte é inválido!</small>
+            <small className="text-danger">A data é inválida!</small>
           )}
         </div>
         <div>

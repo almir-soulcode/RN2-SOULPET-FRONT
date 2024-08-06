@@ -1,7 +1,6 @@
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-import { getClientes } from "../api/clientes";
 import { useEffect, useState } from "react";
 import { getPet, updatePet } from "../api/pets";
 import toast from "react-hot-toast";
@@ -19,6 +18,7 @@ function EditarPet() {
   const { id } = useParams();
 
   function atualizarPet(data) {   
+    if (data.dataNasc === "") data.dataNasc = null;
     updatePet(id, data)
       .then(() => {
         toast.success("Pet atualizado com sucesso.");
@@ -90,10 +90,10 @@ function EditarPet() {
             type="date"
             id="dataNasc"
             className="form-control"
-            {...register("dataNasc", { required: true, maxLength: 200 })}
+            {...register("dataNasc")}
           />
           {errors.dataNasc && (
-            <small className="text-danger">O porte é inválido!</small>
+            <small className="text-danger">A data é inválida!</small>
           )}
         </div>
         <Button className="mt-3" type="submit">
